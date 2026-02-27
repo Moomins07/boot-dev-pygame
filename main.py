@@ -15,6 +15,16 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
+
+    # GROUPS
+    my_group = pygame.sprite.Group()
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    # ADD PLAYER CLASS TO GROUPS
+    Player.containers = (updatable, drawable)
+    Player.containers = (group_a, group_b)
+
     player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
 
     while True:
