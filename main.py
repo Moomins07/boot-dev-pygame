@@ -17,13 +17,13 @@ def main():
     dt = 0
 
     # GROUPS
-    my_group = pygame.sprite.Group()
+   
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
 
     # ADD PLAYER CLASS TO GROUPS
     Player.containers = (updatable, drawable)
-    Player.containers = (group_a, group_b)
+    
 
     player = Player(x = SCREEN_WIDTH / 2, y = SCREEN_HEIGHT / 2)
 
@@ -33,8 +33,13 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill("black")
-        player.update(dt)
-        player.draw(screen)
+        
+        for player in updatable:
+            player.update(dt)
+       
+        for player in drawable:
+            player.draw(screen)
+        
         pygame.display.flip()
         dt = clock.tick(60) / 1000
        
